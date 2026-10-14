@@ -30,7 +30,10 @@ function changeQuantity(cart, productId, quantity) {
   return cart.map((p) => p.id === productId ? {...p, quantity: quantity } : p);
 }
 
-function removeFromCart() { return notImplemented(); }
+function removeFromCart(cart, productId) {
+  return cart.filter((p) => p.id !== productId);
+}
+
 function calculateCartSubtotal() { return notImplemented(); }
 function calculateOrderTotal() { return notImplemented(); }
 
