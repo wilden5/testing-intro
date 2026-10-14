@@ -34,7 +34,12 @@ function removeFromCart(cart, productId) {
   return cart.filter((p) => p.id !== productId);
 }
 
-function calculateCartSubtotal() { return notImplemented(); }
+function calculateCartSubtotal(cart) {
+  if (cart.length === 0) return 0;
+
+  return cart.reduce((total, product) => total + (product.price * product.quantity), 0)
+}
+
 function calculateOrderTotal() { return notImplemented(); }
 
 const cartApi = { addToCart, changeQuantity, removeFromCart, calculateCartSubtotal, calculateOrderTotal };
