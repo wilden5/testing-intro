@@ -7,7 +7,7 @@ function addToCart(cart, product, quantity) {
   const currentQuantity = productToAdd ? productToAdd.quantity : 0;
   const newQuantity = currentQuantity + quantity;
 
-  if (newQuantity > product.stock || quantity === 0) {
+  if (newQuantity > product.stock || quantity <= 0) {
     throw new RangeError;
   }
 
